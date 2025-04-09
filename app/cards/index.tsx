@@ -479,7 +479,7 @@ export default function CardListScreen() {
 
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#1e1b18'}}>
-            <View style={{paddingHorizontal: 20, paddingTop: 20}}>
+            <View style={{paddingHorizontal: 20, paddingTop: 20, flex: 1}}>
                 <Text style={{
                     fontSize: 26,
                     fontWeight: 'bold',
@@ -493,11 +493,12 @@ export default function CardListScreen() {
                     data={cards}
                     keyExtractor={(item) => item.id}
                     showsVerticalScrollIndicator={false}
+                    contentContainerStyle={{paddingBottom: 80}} // ← 🚨 IMPORTANT
                     renderItem={({item}) => (
                         <TouchableOpacity
                             onPress={() => router.push(`/cards/${item.id}`)}
                             style={{
-                                backgroundColor: '#f5f5dc', // soft golden card
+                                backgroundColor: '#f5f5dc',
                                 borderRadius: 12,
                                 padding: 18,
                                 marginBottom: 16,
@@ -529,4 +530,5 @@ export default function CardListScreen() {
             </View>
         </SafeAreaView>
     );
+
 }

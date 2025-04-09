@@ -1,8 +1,8 @@
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {View, Text, Pressable, StyleSheet, Image, Linking} from 'react-native';
-import {useRouter} from 'expo-router';
-import {StatusBar} from 'expo-status-bar';
-import image from './image.png'
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, Pressable, StyleSheet, Image, Linking, ScrollView } from 'react-native';
+import { useRouter } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import image from './image.png'; // use the correct path
 
 export default function HomeScreen() {
     const router = useRouter();
@@ -13,26 +13,24 @@ export default function HomeScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar style="light"/>
+            <StatusBar style="light" />
 
-            <View style={styles.inner}>
+            {/* NOW WRAPPED IN SCROLLVIEW */}
+            <ScrollView contentContainerStyle={styles.scrollContent}>
                 <Text style={styles.heading}>🕉 CHATURMASYA 2025</Text>
 
-                {/* Image placeholder */}
                 <Image
-                    source={image} // replace with actual URL
+                    source={image}
                     style={styles.image}
                     resizeMode="contain"
                 />
 
                 <View style={styles.card}>
-
-
                     <Pressable
                         onPress={() => router.push('/cards')}
-                        style={({pressed}) => [
+                        style={({ pressed }) => [
                             styles.button,
-                            {backgroundColor: pressed ? '#a58c5f' : '#c5aa6a'},
+                            { backgroundColor: pressed ? '#a58c5f' : '#c5aa6a' },
                         ]}
                     >
                         <Text style={styles.buttonText}>OPEN CALENDAR</Text>
@@ -44,7 +42,7 @@ export default function HomeScreen() {
 
                     <Text style={styles.footer}>🔱 Om Namah Shivaya 🔱</Text>
                 </View>
-            </View>
+            </ScrollView>
         </SafeAreaView>
     );
 }
@@ -54,9 +52,9 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#1e1b18',
     },
-    inner: {
-        flex: 1,
+    scrollContent: {
         padding: 20,
+        paddingBottom: 60,
     },
     heading: {
         fontSize: 28,
@@ -68,7 +66,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: 280,
+        height: 250,
         borderRadius: 12,
         marginBottom: 30,
     },
@@ -77,25 +75,18 @@ const styles = StyleSheet.create({
         padding: 30,
         borderRadius: 16,
         shadowColor: '#000',
-        shadowOffset: {width: 0, height: 4},
+        shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.2,
         shadowRadius: 8,
         elevation: 6,
         alignItems: 'center',
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#1e1b18',
-        marginBottom: 24,
-        textAlign: 'center',
     },
     button: {
         paddingVertical: 14,
         paddingHorizontal: 28,
         borderRadius: 10,
         shadowColor: '#000',
-        shadowOffset: {width: 0, height: 2},
+        shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
         shadowRadius: 6,
         elevation: 6,
@@ -103,9 +94,9 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#1e1b18',
-        fontSize: 28,
+        fontSize: 20,
         fontWeight: '600',
-        backgroundColor: '#c5aa6a', // 🟨 nice golden beige
+        backgroundColor: '#c5aa6a',
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 8,
