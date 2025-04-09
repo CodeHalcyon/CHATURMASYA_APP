@@ -39,8 +39,6 @@ export default function HomeScreen() {
                     <Pressable onPress={handleContactPress}>
                         <Text style={styles.contact}>📞 Contact Us:+91 9848655234 </Text>
                     </Pressable>
-
-                    <Text style={styles.footer}>🔱 Om Namah Shivaya 🔱</Text>
                 </View>
             </ScrollView>
         </SafeAreaView>

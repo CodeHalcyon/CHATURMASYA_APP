@@ -31,8 +31,6 @@ export default function CardDetailScreen() {
                     <Text style={styles.label}>🧘‍♂️ Chief Guest:</Text>
                     <Text style={styles.value}>{event.guest}</Text>
                 </View>
-
-                <Text style={styles.footer}>🔱 Om Namah Shivaya 🔱</Text>
             </ScrollView>
         </SafeAreaView>
     );
@@ -78,12 +76,6 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         fontSize: 16,
         marginBottom: 12,
-    },
-    footer: {
-        textAlign: 'center',
-        color: '#a1a1aa',
-        marginTop: 40,
-        fontSize: 12,
     },
     notFoundText: {
         color: 'red',

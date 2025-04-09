@@ -524,7 +524,7 @@ export default function CardListScreen() {
                             }}>
                                 {item.date} • {item.day}
                             </Text>
-                            <Text style={styles.footer}>🔱 Om Namah Shivaya 🔱</Text>
+
                         </TouchableOpacity>
                     )}
                 />
@@ -532,13 +532,4 @@ export default function CardListScreen() {
         </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create({
-    footer: {
-        textAlign: 'center',
-        color: '#a1a1aa',
-        marginTop: 40,
-        fontSize: 12,
-    },
-});
 
