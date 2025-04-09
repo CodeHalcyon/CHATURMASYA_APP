@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity, FlatList} from 'react-native';
+import {View, Text, TouchableOpacity, FlatList, StyleSheet} from 'react-native';
 import {useRouter} from 'expo-router';
 import {SafeAreaView} from "react-native-safe-area-context";
 
@@ -524,11 +524,21 @@ export default function CardListScreen() {
                             }}>
                                 {item.date} • {item.day}
                             </Text>
+                            <Text style={styles.footer}>🔱 Om Namah Shivaya 🔱</Text>
                         </TouchableOpacity>
                     )}
                 />
             </View>
         </SafeAreaView>
     );
-
 }
+
+const styles = StyleSheet.create({
+    footer: {
+        textAlign: 'center',
+        color: '#a1a1aa',
+        marginTop: 40,
+        fontSize: 12,
+    },
+});
+

@@ -8,7 +8,7 @@ export default function HomeScreen() {
     const router = useRouter();
 
     const handleContactPress = () => {
-        Linking.openURL('mailto:your-email@example.com'); // replace this
+        Linking.openURL('tel:+919848655234'); // replace this
     };
 
     return (
@@ -37,7 +37,7 @@ export default function HomeScreen() {
                     </Pressable>
 
                     <Pressable onPress={handleContactPress}>
-                        <Text style={styles.contact}>📧 Contact Us</Text>
+                        <Text style={styles.contact}>📞 Contact Us:+91 9848655234 </Text>
                     </Pressable>
 
                     <Text style={styles.footer}>🔱 Om Namah Shivaya 🔱</Text>
@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
     contact: {
         color: '#1e1b18',
         fontSize: 14,
-        textDecorationLine: 'underline',
         marginTop: 30,
     },
     footer: {
