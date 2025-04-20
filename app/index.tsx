@@ -2,20 +2,29 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, Text, Pressable, StyleSheet, Image, Linking, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import image from './image.png'; // use the correct path
+
+import image from './image.png';      // Calendar image
+import donation from './donation.jpg'; // UPI QR image
 
 export default function HomeScreen() {
     const router = useRouter();
 
     const handleContactPress = () => {
-        Linking.openURL('tel:+919848655234'); // replace this
+        Linking.openURL('tel:+919849191837');
+    };
+
+    const handleUPIPayment = () => {
+        Linking.openURL('upi://pay?pa=temple@upi&pn=Temple%20Donations&cu=INR');
+    };
+
+    const handleOpenMaps = () => {
+        Linking.openURL('https://maps.app.goo.gl/3dDYvRMdJqjc4rv2A');
     };
 
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" />
 
-            {/* NOW WRAPPED IN SCROLLVIEW */}
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 <Text style={styles.heading}>🕉 CHATURMASYA 2025</Text>
 
@@ -26,6 +35,7 @@ export default function HomeScreen() {
                 />
 
                 <View style={styles.card}>
+                    {/* Calendar Button */}
                     <Pressable
                         onPress={() => router.push('/cards')}
                         style={({ pressed }) => [
@@ -36,9 +46,30 @@ export default function HomeScreen() {
                         <Text style={styles.buttonText}>OPEN CALENDAR</Text>
                     </Pressable>
 
+                    {/* Contact */}
                     <Pressable onPress={handleContactPress}>
-                        <Text style={styles.contact}>📞 Contact Us:+91 9848655234 </Text>
+                        <Text style={styles.contact}>📞 Contact Us: +91 98491918374</Text>
                     </Pressable>
+
+                    {/* Donation Section */}
+                    <View style={{ marginTop: 30, alignItems: 'center'}}>
+                        <Pressable onPress={handleUPIPayment}>
+                            <Image
+                                source={donation}
+                                style={styles.donationImage}
+                                resizeMode="contain"
+
+                            />
+                        </Pressable>
+                    </View>
+
+                    {/* Location Section */}
+                    <View style={styles.locationContainer}>
+                        <Text style={styles.locationHeading}>📍 Visit Us</Text>
+                        <Pressable onPress={handleOpenMaps}>
+                            <Text style={styles.locationLink}>Tap to open in Google Maps</Text>
+                        </Pressable>
+                    </View>
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -92,23 +123,44 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#1e1b18',
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: '600',
-        backgroundColor: '#c5aa6a',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 8,
         textAlign: 'center',
     },
     contact: {
         color: '#1e1b18',
         fontSize: 14,
-        marginTop: 30,
+        marginTop: 10,
     },
-    footer: {
+    donationImage: {
+        width: 180,
+        height: 180,
+        borderRadius: 12,
+        borderWidth: 2,
+        borderColor: '#1e1b18',
+        marginTop: 10,
+        padding: 10
+    },
+    tapToPay: {
+        color: '#1e1b18',
+        fontSize: 14,
+        marginTop: 8,
         textAlign: 'center',
-        color: '#a1a1aa',
+    },
+    locationContainer: {
         marginTop: 40,
-        fontSize: 12,
+        alignItems: 'center',
+    },
+    locationHeading: {
+        fontSize: 18,
+        fontWeight: '600',
+        color: '#1e1b18',
+        marginBottom: 8,
+    },
+    locationLink: {
+        color: '#3b82f6',
+        fontSize: 14,
+        textDecorationLine: 'underline',
+        textAlign: 'center',
     },
 });
